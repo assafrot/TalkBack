@@ -1,0 +1,212 @@
+﻿<Window x:Class="Client.Views.GameRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views"
+        xmlns:converters="clr-namespace:Client.Converters"
+        mc:Ignorable="d"
+        Title="GameRoom" Height="450" Width="650">
+    <Window.Resources>
+        <converters:CheckersConverter x:Key="CheckersConverter"/>
+        <converters:CurrentPlayerConverter x:Key="CurrentPlayerConverter"/>
+        <converters:DiceConverter x:Key="DiceConverter" />
+    </Window.Resources>
+    <Grid Background="BurlyWood">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="{Binding UserName}" HorizontalAlignment="Center"/>
+            <TextBlock  TextWrapping="Wrap" Text="{Binding PlayerColor}" VerticalAlignment="Top" />
+            <TextBlock Text="{Binding CurrentTurn, Converter={StaticResource CurrentPlayerConverter} }"></TextBlock>
+            <TextBlock Text="{Binding CurrentStatus}"></TextBlock>
+
+        </StackPanel>
+        <Canvas Grid.Column="1" Grid.RowSpan="2">
+            <Button VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="12" Background="AntiqueWhite" Height="146" Margin="16,9,0,0"  Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[12], Converter={StaticResource CheckersConverter}}"></ItemsControl>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="11" Background="IndianRed" HorizontalAlignment="Left" Height="146" Margin="47,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[11], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="10" Background="AntiqueWhite" HorizontalAlignment="Left" Height="146" Margin="78,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[10], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="9" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="108" Canvas.Top="9">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[9], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="8" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="139" Canvas.Top="9">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[8], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button  VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="7" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="170" Canvas.Top="9">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[7], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="6" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" Margin="291,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[6], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="5" Background="IndianRed"  HorizontalAlignment="Left" Height="146" Margin="322,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[5], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="4" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" Margin="353,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[4], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="3" Background="IndianRed"  HorizontalAlignment="Left" Height="146" Margin="384,9,0,0" VerticalAlignment="Top" Width="31" >
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[3], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="2" Background="AntiqueWhite" HorizontalAlignment="Left" Height="146" Margin="415,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[2], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="1" Background="IndianRed"  HorizontalAlignment="Left" Height="146" Margin="446,9,0,0" VerticalAlignment="Top" Width="31">
+                <StackPanel >
+                    <ItemsControl  ItemsSource="{Binding Board.GameBoard[1], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="24" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="446" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[24], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="23" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="415" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[23], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top" Command="{Binding ChooseCheckerCommand}" CommandParameter="22" Background="AntiqueWhite" HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="384" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[22], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="21" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="353" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[21], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="20" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="322" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[20], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="19" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="291" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[19], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="18"  Background="AntiqueWhite" HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="171" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[18], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="17" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="140" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[17], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="16" Background="AntiqueWhite" HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="109" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[16], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="15" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="78" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[15], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="14" Background="AntiqueWhite"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="47" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[14], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="13" Background="IndianRed"  HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="31" Canvas.Left="16" Canvas.Top="265">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[13], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding RollDiceCommand}" Content="Roll Dice" Canvas.Left="213" Canvas.Top="170" Width="75"/>
+            <Image Source="{Binding Dice[0], Converter={StaticResource DiceConverter}}" Height="45" Canvas.Left="259" Canvas.Top="195" Width="44"/>
+            <Image Source="{Binding Dice[1], Converter={StaticResource DiceConverter}}" Height="45" Canvas.Left="193" Canvas.Top="195" Width="44"/>
+            <TextBlock Canvas.Left="213" TextWrapping="Wrap" Text="White Eaten" Canvas.Top="9"/>
+            <TextBlock Canvas.Left="213" TextWrapping="Wrap" Text="Black Eaten" Canvas.Top="271"/>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="25"  Background="LightGray" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="31" Canvas.Left="231" Canvas.Top="299">
+                <Button.LayoutTransform>
+                    <RotateTransform Angle="180"/>
+                </Button.LayoutTransform>
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[25], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button VerticalContentAlignment="Top"  Command="{Binding ChooseCheckerCommand}" CommandParameter="0"  Background="LightGray" HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="31" Canvas.Left="228" Canvas.Top="34">
+                <StackPanel >
+                    <ItemsControl ItemsSource="{Binding Board.GameBoard[0], Converter={StaticResource CheckersConverter}}"/>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding ChooseCheckerCommand}" CommandParameter="99" Content="Throw Away" Background="SlateGray"  Height="73" Canvas.Left="353" Canvas.Top="170" Width="78"/>
+        </Canvas>
+
+
+    </Grid>
+</Window>
